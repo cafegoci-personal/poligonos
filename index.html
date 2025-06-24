@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Polígonos - 1er Año</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔺 ¡Aprendamos sobre Polígonos! 🔺</h1>
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">1</div>
+                <div class="progress-step" data-step="2">2</div>
+                <div class="progress-step" data-step="3">3</div>
+            </div>
+        </header>
+
+        <!-- Step 1: Introduction -->
+        <div class="step active" id="step1">
+            <h2>🌟 Paso 1: ¿Qué son los Polígonos? 🌟</h2>
+            <div class="content">
+                <div class="explanation">
+                    <p class="big-text">¡Los polígonos son figuras cerradas con líneas rectas!</p>
+                    <div class="shapes-intro">
+                        <div class="shape-card">
+                            <div class="triangle"></div>
+                            <p>Triángulo<br><span class="small">3 lados</span></p>
+                        </div>
+                        <div class="shape-card">
+                            <div class="square"></div>
+                            <p>Cuadrado<br><span class="small">4 lados iguales</span></p>
+                        </div>
+                        <div class="shape-card">
+                            <div class="rectangle"></div>
+                            <p>Rectángulo<br><span class="small">4 lados</span></p>
+                        </div>
+                        <div class="shape-card">
+                            <div class="pentagon"></div>
+                            <p>Pentágono<br><span class="small">5 lados</span></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="next-btn" onclick="nextStep()">¡Siguiente! 👉</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Practice Identification -->
+        <div class="step" id="step2">
+            <h2>🎯 Paso 2: ¡Encuentra los Polígonos! 🎯</h2>
+            <div class="content">
+                <p class="instruction">Haz clic en las figuras que SON polígonos:</p>
+                <div class="identification-game">
+                    <div class="shape-grid">
+                        <div class="clickable-shape polygon" data-type="triangle">
+                            <div class="triangle green"></div>
+                        </div>
+                        <div class="clickable-shape not-polygon" data-type="circle">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="clickable-shape polygon" data-type="square">
+                            <div class="square blue"></div>
+                        </div>
+                        <div class="clickable-shape not-polygon" data-type="oval">
+                            <div class="oval"></div>
+                        </div>
+                        <div class="clickable-shape polygon" data-type="rectangle">
+                            <div class="rectangle red"></div>
+                        </div>
+                        <div class="clickable-shape polygon" data-type="pentagon">
+                            <div class="pentagon purple"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="score">
+                    <p>Polígonos encontrados: <span id="score">0</span>/4</p>
+                </div>
+                <button class="next-btn" id="step2-next" onclick="nextStep()" style="display: none;">¡Excelente! Siguiente 👉</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Classification Game -->
+        <div class="step" id="step3">
+            <h2>🏆 Paso 3: ¡Clasifica los Polígonos! 🏆</h2>
+            <div class="content">
+                <p class="instruction">Arrastra cada polígono a su grupo correcto:</p>
+                <div class="classification-game">
+                    <div class="drag-area">
+                        <h3>Polígonos para clasificar:</h3>
+                        <div class="draggable-shapes">
+                            <div class="draggable-shape" draggable="true" data-sides="3">
+                                <div class="triangle orange"></div>
+                                <span>Triángulo</span>
+                            </div>
+                            <div class="draggable-shape" draggable="true" data-sides="4">
+                                <div class="square pink"></div>
+                                <span>Cuadrado</span>
+                            </div>
+                            <div class="draggable-shape" draggable="true" data-sides="4">
+                                <div class="rectangle cyan"></div>
+                                <span>Rectángulo</span>
+                            </div>
+                            <div class="draggable-shape" draggable="true" data-sides="3">
+                                <div class="triangle lime"></div>
+                                <span>Triángulo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="drop-zones">
+                        <div class="drop-zone" data-category="3">
+                            <h4>3 Lados</h4>
+                            <p>Triángulos</p>
+                            <div class="drop-area"></div>
+                        </div>
+                        <div class="drop-zone" data-category="4">
+                            <h4>4 Lados</h4>
+                            <p>Cuadriláteros</p>
+                            <div class="drop-area"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="final-score">
+                    <p>Clasificaciones correctas: <span id="final-score">0</span>/4</p>
+                </div>
+                <button class="finish-btn" id="finish-btn" onclick="finishGame()" style="display: none;">🎉 ¡Terminé! 🎉</button>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="success-message" style="display: none;">
+            <h2>🎉 ¡Felicitaciones! 🎉</h2>
+            <p>¡Has aprendido sobre polígonos y los has clasificado correctamente!</p>
+            <div class="celebration">
+                <div class="star">⭐</div>
+                <div class="star">⭐</div>
+                <div class="star">⭐</div>
+            </div>
+            <button class="restart-btn" onclick="restartGame()">🔄 Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
