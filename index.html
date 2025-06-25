@@ -3,142 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clasificación de Polígonos - 1er Año</title>
+    <title>🎨 Arte Abstracto con Kandinsky 🎨</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div class="kandinsky-container">
         <header>
-            <h1>🔺 ¡Aprendamos sobre Polígonos! 🔺</h1>
-            <div class="progress-bar">
-                <div class="progress-step active" data-step="1">1</div>
-                <div class="progress-step" data-step="2">2</div>
-                <div class="progress-step" data-step="3">3</div>
+            <h1>🎨 ¡Descubre el Arte Mágico de Kandinsky! 🎨</h1>
+            <div class="art-progress">
+                <div class="progress-circle active" data-step="1">🔴</div>
+                <div class="progress-circle" data-step="2">🎵</div>
+                <div class="progress-circle" data-step="3">🎨</div>
+                <div class="progress-circle" data-step="4">🖼️</div>
             </div>
         </header>
 
-        <!-- Step 1: Introduction -->
-        <div class="step active" id="step1">
-            <h2>🌟 Paso 1: ¿Qué son los Polígonos? 🌟</h2>
+        <!-- Step 1: Meet Kandinsky's Shapes -->
+        <div class="art-step active" id="step1">
+            <h2>🔴 ¡Las Formas que Sienten y Suenan! 🔴</h2>
             <div class="content">
-                <div class="explanation">
-                    <p class="big-text">¡Los polígonos son figuras cerradas con líneas rectas!</p>
-                    <div class="shapes-intro">
-                        <div class="shape-card">
-                            <div class="triangle"></div>
-                            <p>Triángulo<br><span class="small">3 lados</span></p>
+                <div class="mission-panel">
+                    <h3>🎯 Tu Misión:</h3>
+                    <p>¡Descubre el sentimiento de las 3 formas mágicas para desbloquear el siguiente nivel!</p>
+                    <div class="progress-counter">
+                        <span>Formas descubiertas: <strong id="shapes-felt">0</strong>/3</span>
+                        <div class="discovery-stars" id="discovery-stars"></div>
+                    </div>
+                </div>
+                
+                <div class="kandinsky-intro">
+                    <div class="artist-info">
+                        <div class="kandinsky-portrait">🧑‍🎨</div>
+                        <p class="artist-text">
+                            <strong>Wassily Kandinsky</strong> era un artista muy especial que creía que las formas y colores 
+                            tenían sentimientos y hacían música. ¡Vamos a descubrir sus secretos!
+                        </p>
+                    </div>
+                    
+                    <div class="shape-emotions">
+                        <div class="emotion-card" data-shape="circle">
+                            <div class="kandinsky-circle pulsing"></div>
+                            <h3>Círculo</h3>
+                            <p class="emotion">😊 Feliz y Suave</p>
+                            <p class="sound">"Como una gota de agua"</p>
+                            <button class="feel-btn" onclick="feelShape('circle')">¡Siente!</button>
+                            <div class="completion-badge" id="circle-badge" style="display: none;">✨</div>
                         </div>
-                        <div class="shape-card">
-                            <div class="square"></div>
-                            <p>Cuadrado<br><span class="small">4 lados iguales</span></p>
+                        
+                        <div class="emotion-card" data-shape="triangle">
+                            <div class="kandinsky-triangle pulsing"></div>
+                            <h3>Triángulo</h3>
+                            <p class="emotion">⚡ Fuerte y Puntiagudo</p>
+                            <p class="sound">"Como un rayo amarillo"</p>
+                            <button class="feel-btn" onclick="feelShape('triangle')">¡Siente!</button>
+                            <div class="completion-badge" id="triangle-badge" style="display: none;">✨</div>
                         </div>
-                        <div class="shape-card">
-                            <div class="rectangle"></div>
-                            <p>Rectángulo<br><span class="small">4 lados</span></p>
-                        </div>
-                        <div class="shape-card">
-                            <div class="pentagon"></div>
-                            <p>Pentágono<br><span class="small">5 lados</span></p>
+                        
+                        <div class="emotion-card" data-shape="square">
+                            <div class="kandinsky-square pulsing"></div>
+                            <h3>Cuadrado</h3>
+                            <p class="emotion">🏠 Tranquilo y Firme</p>
+                            <p class="sound">"Como una casa roja"</p>
+                            <button class="feel-btn" onclick="feelShape('square')">¡Siente!</button>
+                            <div class="completion-badge" id="square-badge" style="display: none;">✨</div>
                         </div>
                     </div>
                 </div>
-                <button class="next-btn" onclick="nextStep()">¡Siguiente! 👉</button>
+                <button class="kandinsky-btn next-btn" id="step1-next" onclick="nextStep()" style="display: none;">¡Escuchar las Formas! 🎵</button>
             </div>
         </div>
 
-        <!-- Step 2: Practice Identification -->
-        <div class="step" id="step2">
-            <h2>🎯 Paso 2: ¡Encuentra los Polígonos! 🎯</h2>
+        <!-- Step 2: Synesthesia Game -->
+        <div class="art-step" id="step2">
+            <h2>🎵 ¡Las Formas que Hacen Música! 🎵</h2>
             <div class="content">
-                <p class="instruction">Haz clic en las figuras que SON polígonos:</p>
-                <div class="identification-game">
-                    <div class="shape-grid">
-                        <div class="clickable-shape polygon" data-type="triangle">
-                            <div class="triangle green"></div>
+                <p class="instruction">
+                    Kandinsky podía "escuchar" los colores y "ver" la música. 
+                    ¡Haz clic en las formas para escuchar sus sonidos mágicos!
+                </p>
+                
+                <div class="synesthesia-stage">
+                    <div class="sound-shapes">
+                        <div class="musical-shape" data-sound="circle" data-color="blue">
+                            <div class="kandinsky-circle blue floating"></div>
+                            <p>Círculo Azul</p>
                         </div>
-                        <div class="clickable-shape not-polygon" data-type="circle">
-                            <div class="circle"></div>
+                        
+                        <div class="musical-shape" data-sound="triangle" data-color="yellow">
+                            <div class="kandinsky-triangle yellow floating"></div>
+                            <p>Triángulo Amarillo</p>
                         </div>
-                        <div class="clickable-shape polygon" data-type="square">
-                            <div class="square blue"></div>
+                        
+                        <div class="musical-shape" data-sound="square" data-color="red">
+                            <div class="kandinsky-square red floating"></div>
+                            <p>Cuadrado Rojo</p>
                         </div>
-                        <div class="clickable-shape not-polygon" data-type="oval">
-                            <div class="oval"></div>
+                        
+                        <div class="musical-shape" data-sound="circle" data-color="green">
+                            <div class="kandinsky-circle green floating"></div>
+                            <p>Círculo Verde</p>
                         </div>
-                        <div class="clickable-shape polygon" data-type="rectangle">
-                            <div class="rectangle red"></div>
+                        
+                        <div class="musical-shape" data-sound="triangle" data-color="purple">
+                            <div class="kandinsky-triangle purple floating"></div>
+                            <p>Triángulo Morado</p>
                         </div>
-                        <div class="clickable-shape polygon" data-type="pentagon">
-                            <div class="pentagon purple"></div>
+                        
+                        <div class="musical-shape" data-sound="square" data-color="orange">
+                            <div class="kandinsky-square orange floating"></div>
+                            <p>Cuadrado Naranja</p>
                         </div>
                     </div>
+                    
+                    <div class="symphony-counter">
+                        <p>Sinfonía de Formas: <span id="symphony-score">0</span>/6</p>
+                        <div class="sound-waves" id="soundWaves"></div>
+                    </div>
                 </div>
-                <div class="score">
-                    <p>Polígonos encontrados: <span id="score">0</span>/4</p>
-                </div>
-                <button class="next-btn" id="step2-next" onclick="nextStep()" style="display: none;">¡Excelente! Siguiente 👉</button>
+                
+                <button class="kandinsky-btn next-btn" id="step2-next" onclick="nextStep()" style="display: none;">
+                    ¡Crear Arte Abstracto! 🎨
+                </button>
             </div>
         </div>
 
-        <!-- Step 3: Classification Game -->
-        <div class="step" id="step3">
-            <h2>🏆 Paso 3: ¡Clasifica los Polígonos! 🏆</h2>
+        <!-- Step 3: Abstract Art Creator -->
+        <div class="art-step" id="step3">
+            <h2>🎨 ¡Tu Estudio de Arte Abstracto! 🎨</h2>
             <div class="content">
-                <p class="instruction">Arrastra cada polígono a su grupo correcto:</p>
-                <div class="classification-game">
-                    <div class="drag-area">
-                        <h3>Polígonos para clasificar:</h3>
-                        <div class="draggable-shapes">
-                            <div class="draggable-shape" draggable="true" data-sides="3">
-                                <div class="triangle orange"></div>
-                                <span>Triángulo</span>
+                <div class="mission-panel">
+                    <h3>🎯 Tu Misión:</h3>
+                    <p>¡Crea una obra de arte con al menos 5 elementos para convertirte en un verdadero artista!</p>
+                    <div class="progress-counter">
+                        <span>Elementos creados: <strong id="elements-created">0</strong>/5</span>
+                        <div class="creation-progress" id="creation-progress"></div>
+                    </div>
+                </div>
+                
+                <p class="instruction">
+                    ¡Crea tu propia obra maestra abstracta como Kandinsky! 
+                    Haz clic en el lienzo para colocar formas y colores.
+                </p>
+                
+                <div class="abstract-studio">
+                    <div class="kandinsky-tools">
+                        <div class="tool-section">
+                            <h4>Formas</h4>
+                            <div class="shape-tools">
+                                <button class="tool active" data-shape="circle" onclick="selectTool('circle')">
+                                    <div class="kandinsky-circle small"></div>
+                                </button>
+                                <button class="tool" data-shape="triangle" onclick="selectTool('triangle')">
+                                    <div class="kandinsky-triangle small"></div>
+                                </button>
+                                <button class="tool" data-shape="square" onclick="selectTool('square')">
+                                    <div class="kandinsky-square small"></div>
+                                </button>
+                                <button class="tool" data-shape="line" onclick="selectTool('line')">
+                                    <div class="kandinsky-line small"></div>
+                                </button>
                             </div>
-                            <div class="draggable-shape" draggable="true" data-sides="4">
-                                <div class="square pink"></div>
-                                <span>Cuadrado</span>
+                        </div>
+                        
+                        <div class="tool-section">
+                            <h4>Colores Kandinsky</h4>
+                            <div class="color-palette">
+                                <button class="color-tool active" data-color="blue" style="background: #1e3a8a;" onclick="selectColor('blue')"></button>
+                                <button class="color-tool" data-color="red" style="background: #dc2626;" onclick="selectColor('red')"></button>
+                                <button class="color-tool" data-color="yellow" style="background: #eab308;" onclick="selectColor('yellow')"></button>
+                                <button class="color-tool" data-color="green" style="background: #16a34a;" onclick="selectColor('green')"></button>
+                                <button class="color-tool" data-color="purple" style="background: #9333ea;" onclick="selectColor('purple')"></button>
+                                <button class="color-tool" data-color="orange" style="background: #ea580c;" onclick="selectColor('orange')"></button>
+                                <button class="color-tool" data-color="black" style="background: #000000;" onclick="selectColor('black')"></button>
+                                <button class="color-tool" data-color="white" style="background: #ffffff; border: 2px solid #ccc;" onclick="selectColor('white')"></button>
                             </div>
-                            <div class="draggable-shape" draggable="true" data-sides="4">
-                                <div class="rectangle cyan"></div>
-                                <span>Rectángulo</span>
+                        </div>
+                        
+                        <div class="tool-section">
+                            <h4>Modo</h4>
+                            <div class="mode-tools">
+                                <button class="mode-btn active" id="create-mode" onclick="setMode('create')">➕ Crear</button>
+                                <button class="mode-btn" id="edit-mode" onclick="setMode('edit')">✏️ Editar</button>
                             </div>
-                            <div class="draggable-shape" draggable="true" data-sides="3">
-                                <div class="triangle lime"></div>
-                                <span>Triángulo</span>
+                            <div class="mode-hint" id="editHint" style="display: none;">
+                                🎯 <strong>Modo Editar:</strong><br>
+                                ✋ <strong>Arrastra</strong> para mover<br>
+                                ↘️ <strong>Arrastra esquina inferior</strong> para redimensionar<br>
+                                🔄 <strong>Arrastra esquina superior</strong> para rotar<br>
+                                ⌨️ <strong>Shift + Arrastra</strong> = redimensionar<br>
+                                ⌨️ <strong>Ctrl + Arrastra</strong> = rotar
+                            </div>
+                        </div>
+                        
+                        <div class="tool-section">
+                            <h4>Acciones</h4>
+                            <div class="action-tools">
+                                <button class="action-btn" onclick="clearCanvas()">🧹 Limpiar</button>
+                                <button class="action-btn" onclick="getInspiration()">💡 Inspiración</button>
+                                <button class="action-btn" onclick="playComposition()">🎵 Escuchar</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="drop-zones">
-                        <div class="drop-zone" data-category="3">
-                            <h4>3 Lados</h4>
-                            <p>Triángulos</p>
-                            <div class="drop-area"></div>
-                        </div>
-                        <div class="drop-zone" data-category="4">
-                            <h4>4 Lados</h4>
-                            <p>Cuadriláteros</p>
-                            <div class="drop-area"></div>
+                    <div class="abstract-canvas" id="abstractCanvas">
+                        <div class="canvas-grid"></div>
+                        <div class="operation-tooltip" id="operationTooltip" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="edit-controls" id="editControls" style="display: none;">
+                        <h4>🎯 Elemento Seleccionado</h4>
+                        <div class="edit-tools">
+                            <div class="size-control">
+                                <label>Tamaño:</label>
+                                <input type="range" id="sizeSlider" min="0.5" max="3" step="0.1" value="1" onchange="resizeSelected()">
+                                <span id="sizeValue">100%</span>
+                            </div>
+                            <div class="position-control">
+                                <button class="move-btn" onclick="moveSelected('up')">⬆️</button>
+                                <button class="move-btn" onclick="moveSelected('left')">⬅️</button>
+                                <button class="move-btn" onclick="moveSelected('right')">➡️</button>
+                                <button class="move-btn" onclick="moveSelected('down')">⬇️</button>
+                            </div>
+                            <div class="element-actions">
+                                <button class="edit-action-btn" onclick="duplicateSelected()">📋 Duplicar</button>
+                                <button class="edit-action-btn delete" onclick="deleteSelected()">🗑️ Eliminar</button>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="inspiration-panel" id="inspirationPanel" style="display: none;">
+                        <h4>💡 Ideas de Kandinsky</h4>
+                        <ul id="inspirationList">
+                            <li>Círculos que bailan juntos</li>
+                            <li>Triángulos que apuntan al cielo</li>
+                            <li>Líneas que corren por el lienzo</li>
+                            <li>Colores que se abrazan</li>
+                            <li>Formas que cantan una canción</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="final-score">
-                    <p>Clasificaciones correctas: <span id="final-score">0</span>/4</p>
-                </div>
-                <button class="finish-btn" id="finish-btn" onclick="finishGame()" style="display: none;">🎉 ¡Terminé! 🎉</button>
+                
+                <button class="kandinsky-btn next-btn" id="step3-next" onclick="nextStep()" style="display: none;">¡Ver mi Galería! 🖼️</button>
             </div>
         </div>
 
-        <!-- Success Message -->
-        <div class="success-message" id="success-message" style="display: none;">
-            <h2>🎉 ¡Felicitaciones! 🎉</h2>
-            <p>¡Has aprendido sobre polígonos y los has clasificado correctamente!</p>
-            <div class="celebration">
-                <div class="star">⭐</div>
-                <div class="star">⭐</div>
-                <div class="star">⭐</div>
+        <!-- Step 4: Personal Gallery -->
+        <div class="art-step" id="step4">
+            <h2>🖼️ ¡Tu Galería Personal de Arte! 🖼️</h2>
+            <div class="content">
+                <div class="gallery-intro">
+                    <p class="big-text">
+                        ¡Felicitaciones! Has creado arte abstracto como un verdadero artista. 
+                        Kandinsky estaría muy orgulloso de ti.
+                    </p>
+                </div>
+                
+                <div class="personal-gallery">
+                    <div class="gallery-frame" id="galleryFrame">
+                        <div class="artwork-display" id="artworkDisplay">
+                            <p>Tu obra maestra aparecerá aquí</p>
+                        </div>
+                        <div class="frame-label">
+                            <p><strong>Mi Arte Abstracto</strong></p>
+                            <p class="date" id="artDate"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="artist-certificate">
+                        <h3>🏆 Certificado de Artista 🏆</h3>
+                        <p>Este certifica que</p>
+                        <div class="name-input">
+                            <input type="text" id="artistName" placeholder="Escribe tu nombre" maxlength="20">
+                        </div>
+                        <p>ha creado arte abstracto al estilo de <strong>Kandinsky</strong></p>
+                        <p>y entiende que las formas y colores tienen sentimientos</p>
+                        <div class="certificate-date" id="certificateDate"></div>
+                        <button class="kandinsky-btn" onclick="printCertificate()">🖨️ Imprimir Certificado</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-actions">
+                    <button class="kandinsky-btn" onclick="printArtwork()">🖨️ Imprimir Arte</button>
+                    <button class="kandinsky-btn" onclick="saveArtwork()">💾 Guardar Arte</button>
+                    <button class="kandinsky-btn" onclick="shareArtwork()">📤 Compartir</button>
+                    <button class="kandinsky-btn" onclick="startOver()">🔄 Crear Más Arte</button>
+                </div>
             </div>
-            <button class="restart-btn" onclick="restartGame()">🔄 Jugar de nuevo</button>
         </div>
+
+        <!-- Floating Shapes Background -->
+        <div class="floating-shapes" id="floatingShapes"></div>
+        
+        <!-- Sound Visualization -->
+        <div class="sound-visualizer" id="soundVisualizer" style="display: none;"></div>
     </div>
 
     <script src="script.js"></script>
